@@ -2,7 +2,7 @@
 // @name     Elden Ring Interactive Map Item Progression
 // @namespace   Zabuza
 // @description To mark items on the map as completed (using right click)
-// @include     http*://eldenring.wiki.fextralife.com/file/Elden-Ring/map-*.html
+// @include     http*://eldenring.wiki.fextralife.com/file/Elden-Ring/map-*.html*
 // @version     1
 // @require http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js
 // @grant       none

@@ -3,7 +3,7 @@
 // @namespace   Zabuza
 // @description To mark items on the map as completed (using right click)
 // @include     http*://eldenring.wiki.fextralife.com/file/Elden-Ring/map-*.html*
-// @version     1
+// @version     1.1
 // @require http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js
 // @grant       none
 // @run-at      document-idle
@@ -55,7 +55,7 @@ function toggleItemCompleted(item) {
 
 function applyStatus() {
   completedItems.forEach(function(identifier) {
-    $(".leaflet-marker-icon[title='" + identifier + "']").addClass('isCompletedItem');
+    $(".leaflet-marker-icon[title='" + $.escapeSelector(identifier) + "']").addClass('isCompletedItem');
   });
 }
 

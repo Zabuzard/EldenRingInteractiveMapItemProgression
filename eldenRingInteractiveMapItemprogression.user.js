@@ -3,7 +3,7 @@
 // @namespace   Zabuza
 // @description To mark items on the map as completed (using right click)
 // @include     http*://eldenring.wiki.fextralife.com/file/Elden-Ring/map-*.html*
-// @version     1.1
+// @version     1.2
 // @require http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js
 // @grant       none
 // @run-at      document-idle
@@ -11,8 +11,8 @@
 
 function addCssRules() {
 	$('body').append('<style type="text/css">\
-			.isCompletedItem {\
-				opacity:  0.3;\
+			.' + completedClassName + ' {\
+				opacity: 0.3 !important;\
 			}\
 		</style>');
 }
@@ -43,10 +43,10 @@ function toggleItemCompleted(item) {
   var identifier = $(item).attr("title");
   
   if (completedItems.has(identifier)) {
-    $(item).removeClass('isCompletedItem');
+    $(item).removeClass(completedClassName);
     completedItems.delete(identifier);
   } else {
-    $(item).addClass('isCompletedItem');
+    $(item).addClass(completedClassName);
     completedItems.add(identifier);
   }
     
@@ -55,15 +55,21 @@ function toggleItemCompleted(item) {
 
 function applyStatus() {
   completedItems.forEach(function(identifier) {
-    $(".leaflet-marker-icon[title='" + $.escapeSelector(identifier) + "']").addClass('isCompletedItem');
+    $(".leaflet-marker-icon[title='" + $.escapeSelector(identifier) + "']").addClass(completedClassName);
   });
 }
 
 function attachHook() {
-  $(".leaflet-marker-icon").unbind("mousedown").mousedown(function(event) {
-    var rightClickEvent = 3;
-    if (event.which == rightClickEvent) {
-  	  toggleItemCompleted(this);
+  $("img.leaflet-marker-icon").each(function() {
+    if (!$(this).hasClass(hookAttachedClassName)) {
+      $(this).addClass(hookAttachedClassName);
+      
+      $(this).mouseup(function(event) {
+    		var rightClickEvent = 3;
+    		if (event.which == rightClickEvent) {
+  	  		toggleItemCompleted(this);
+    		}
+  		});
     }
 	});
 }
@@ -81,6 +87,9 @@ function routine() {
 var storageKeys = {};
 storageKeys.keyIndex = 'eldenringmap_';
 storageKeys.completedItems = 'completedItems';
+
+var completedClassName = 'isCompletedItem';
+var hookAttachedClassName = 'hookAttached';
 
 var completedItems = new Set();
 

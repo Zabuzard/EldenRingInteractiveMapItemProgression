@@ -68,10 +68,10 @@ function attachHook() {
     		var rightClickEvent = 3;
     		if (event.which == rightClickEvent) {
   	  		toggleItemCompleted(this);
-    		}
-  		});
+        }
+      });
     }
-	});
+  });
 }
 
 function showAllSymbols() {

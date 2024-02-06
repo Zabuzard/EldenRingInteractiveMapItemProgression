@@ -108,6 +108,6 @@ loadStorage();
 attachHook();
 window.setTimeout(routine, 500);
 
-$(".leaflet-control-layers, #map-overground, #map-underground, #map-endgame").click(function(e) {
+$(".leaflet-control-layers, #map-overground, #map-underground, #map-endgame, #mapSwitch").click(function(e) {
   window.setTimeout(routine, 2000);
 });

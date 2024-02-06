@@ -75,7 +75,14 @@ function attachHook() {
 }
 
 function showAllSymbols() {
-  $("span:contains('All')").prev("input.leaflet-control-layers-selector").parent("div").click();
+  $("button#bcat-Show-All").click();
+}
+
+function hideSomeSymbols() {
+  $("button#bcat-Consumables").click();
+  $("button#bcat-Materials").click();
+  $("button#bcat-Spiritsprings").click();
+  $("button#bcat-Summoning_Pool").click();
 }
 
 function routine() {
@@ -95,6 +102,7 @@ var completedItems = new Set();
 
 addCssRules();
 showAllSymbols();
+hideSomeSymbols();
 loadStorage();
 
 attachHook();

@@ -76,6 +76,7 @@ function attachHook() {
 
 function showAllSymbols() {
   $("button#bcat-Show-All").click();
+  $("span:contains('All')").prev("input.leaflet-control-layers-selector").parent("div").click();
 }
 
 function hideSomeSymbols() {
@@ -83,6 +84,11 @@ function hideSomeSymbols() {
   $("button#bcat-Materials").click();
   $("button#bcat-Spiritsprings").click();
   $("button#bcat-Summoning_Pool").click();
+  
+  $('label > div:contains("Consumables")').click();
+  $('label > div:contains("Materials")').click();
+  $('label > div:contains("Spiritsprings")').click();
+  $('label > div:contains("Summoning Pool")').click();
 }
 
 function routine() {

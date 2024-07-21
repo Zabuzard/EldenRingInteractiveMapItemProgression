@@ -8,6 +8,10 @@ To mark an item as completed, **right-click** it. Completed items are shown with
 
 The status is persisted locally in the browsers `localStorage`, so it remembers completed items even if the page or browser has been closed.
 
+If `localStorage` gets wiped periodically i.e. after closing the browser or if the user wants to transfer the progress to another machine or simply to make a local backup one can do so by ex- and importing the current progression using two new buttons on the top of the map:
+
+![example2](https://i.imgur.com/Bn8Dstk.jpeg)
+
 ## Install
 
 1. Either add the [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/) or [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) addon to your browser.
